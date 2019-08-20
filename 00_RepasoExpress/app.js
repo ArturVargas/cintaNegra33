@@ -15,6 +15,6 @@ app.post('/new/user', register);
 app.post('/login', login);
 app.post('/new/post', newPost);
 app.get('/posts', listPosts);
-app.get('/post/:id', post)
+app.get('/post/:id', post);
 
 app.listen(PORT, () => console.log(`Servidor Corriendo en puerto: ${PORT}`))
