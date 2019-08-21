@@ -1,8 +1,18 @@
 
+require('dotenv').config();
 const express =require('express');
+const mongoose = require('mongoose');
 
 const app = express();
-const PORT = 3000;
+
+mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true}, (err) => {
+    if(!err){
+        console.log('Conectado a Mongo');
+    }
+})
+
+app.use(express.urlencoded({ extended: false}))
+app.use(express.json())
 
 const {register, login} = require('./controllers/auth');
 const {newPost, listPosts, post} = require('./controllers/post');
@@ -17,4 +27,4 @@ app.post('/new/post', newPost);
 app.get('/posts', listPosts);
 app.get('/post/:id', post);
 
-app.listen(PORT, () => console.log(`Servidor Corriendo en puerto: ${PORT}`))
+app.listen(process.env.PORT, () => console.log(`Servidor Corriendo en puerto: ${process.env.PORT}`))
