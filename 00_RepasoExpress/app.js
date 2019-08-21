@@ -2,6 +2,7 @@
 require('dotenv').config();
 const express =require('express');
 const mongoose = require('mongoose');
+const {verifyTkn} = require('./middlewares/verifyToken');
 
 const app = express();
 
@@ -23,7 +24,7 @@ app.get('/', (req, res) => {
 
 app.post('/new/user', register);
 app.post('/login', login);
-app.post('/new/post', newPost);
+app.post('/new/post',verifyTkn, newPost);
 app.get('/posts', listPosts);
 app.get('/post/:id', post);
 
