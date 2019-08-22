@@ -1,0 +1,8 @@
+
+type Query {
+    saludo(name:String!):String!
+}
+
+type Mutation {
+    persona(edad:Int):String!
+}
