@@ -4,5 +4,27 @@ type Query {
 }
 
 type Mutation {
-    persona(edad:Int):String!
+    createUser(user:inputUser!):User
+    login(user:inputLogin!):Auth
+}
+
+type User {
+    _id:ID!
+    name:String!
+    email:String!
+}
+
+type Auth {
+    token:String!
+}
+
+input inputUser {
+    name:String!
+    email:String!
+    password:String!
+}
+
+input inputLogin {
+    email:String!
+    password:String!
 }
