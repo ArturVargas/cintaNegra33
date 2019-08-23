@@ -22,10 +22,10 @@ Con Graphql nuestro front-end puede elegir un conjunto de campos diferentes, por
 * Implementar un caché con GraphQl es más complejo que en REST. Sin embargo la mayoria de las librerias creadas sobre GraphQl ofrecen un mecanismo de almacenamiento en caché listo para usar.
 
 ## Referencias
-[GraphQl](https://graphql.org/)
-[Why Graphql](https://www.robinwieruch.de/why-graphql-advantages-disadvantages-alternatives/)
+* [GraphQl](https://graphql.org/)
+* [Why Graphql](https://www.robinwieruch.de/why-graphql-advantages-disadvantages-alternatives/)
 
 ## Tutoriales
-[GraphQl](https://graphql.org/learn/)
-[How to Graphql](https://www.howtographql.com/)
-[Learning Graphql](https://github.com/mugli/learning-graphql)
+* [GraphQl](https://graphql.org/learn/)
+* [How to Graphql](https://www.howtographql.com/)
+* [Learning Graphql](https://github.com/mugli/learning-graphql)
