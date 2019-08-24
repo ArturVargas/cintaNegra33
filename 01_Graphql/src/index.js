@@ -9,18 +9,26 @@ mongoose.connect(process.env.MONGO, {useNewUrlParser: true}, (err) => {
     if(!err){ console.log('Conectado a Mongo'); }
 })
 
+//Mutations
 const {createUser, login} = require('./resolvers/Mutations/auth');
+const { createEvent } = require('./resolvers/Mutations/event');
+
+//Querys
+const { getAllEvents, getIdEvent } = require('./resolvers/Querys/event');
 
 
 const resolvers = {
     Query: {
-        saludo:(obj, args)=> `Hola ${args.name}`
+        getAllEvents,
+        getIdEvent
     },
     Mutation: {
         createUser,
-        login
+        login,
+        createEvent
     }
 }
+
 
 const server = new GraphQLServer({ typeDefs, resolvers})
 server.start( () => console.log('Graphql corriendo en puerto: 4000'))

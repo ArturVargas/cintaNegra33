@@ -1,11 +1,15 @@
 
+scalar Date
+
 type Query {
-    saludo(name:String!):String!
+    getAllEvents:[Event]
+    getIdEvent(id:ID):Event
 }
 
 type Mutation {
     createUser(user:inputUser!):User
-    login(user:inputLogin!):Auth
+    login(user:inputLogin!):Auth!
+    createEvent(data:inputEvent):Event
 }
 
 type User {
@@ -18,6 +22,21 @@ type Auth {
     token:String!
 }
 
+type Event {
+    _id:ID!
+    eventName:String
+    desc:String
+    price:String
+    dateInit:Date
+    location:Location
+    user:User!
+}
+
+type Location {
+    type:String!
+    coordinates:[Float]!
+}
+
 input inputUser {
     name:String!
     email:String!
@@ -27,4 +46,18 @@ input inputUser {
 input inputLogin {
     email:String!
     password:String!
+}
+
+input inputEvent {
+    eventName:String!
+    desc:String!
+    price:String
+    dateInit:Date
+    location:createLocation
+    user:ID
+}
+
+input createLocation {
+    type:String!
+    coordinates:[Float]!
 }

@@ -1,6 +1,7 @@
 
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+const jwt = require('jsonwebtoken');
 
 const User = require('../../models/User');
 
@@ -27,8 +28,13 @@ const login = async (obj, args) => {
     if (user) {
         const valid = await bcrypt.compareSync(params.password, user.password)
         if(valid){
-            //aqui se hace el token
-            return user;
+            const payload = {
+                id:user._id,
+                name: user.name,
+                email: user.email
+            }
+            const token = await jwt.sign(payload, process.env.SECRET, {expiresIn: '2hr'})
+            return { token: token}
         } else {
             throw new Error('Credenciales invalidas')
         }
