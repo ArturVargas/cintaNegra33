@@ -7,7 +7,8 @@ const createEvent = async (obj, args) => {
        ...params
    }) 
    const miEvent = await newEvent.save();
-   const event = await Event.findOne({_id:miEvent._id}).populate('user')
+   const event = await Event.findOne({_id:miEvent._id}).populate('user');
+   console.log(event);
    return event
 }
 

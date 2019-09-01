@@ -1,15 +1,16 @@
 
 scalar Date
+directive @auth on FIELD_DEFINITION | FIELD
 
 type Query {
     getAllEvents:[Event]
-    getIdEvent(id:ID):Event
+    getIdEvent(id:ID):Event @auth
 }
 
 type Mutation {
     createUser(user:inputUser!):User
     login(user:inputLogin!):Auth!
-    createEvent(data:inputEvent):Event
+    createEvent(data:inputEvent):Event @auth
 }
 
 type User {
