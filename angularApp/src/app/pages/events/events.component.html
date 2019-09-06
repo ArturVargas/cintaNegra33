@@ -1,0 +1,27 @@
+<form class="example-form" (ngSubmit)="sendForm()" [formGroup]="eventForm">
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Nombre del Evento" formControlName="eventName">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Descripción" formControlName="desc"></textarea>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Precio" formControlName="precio">
+  </mat-form-field>
+
+  <div>
+    <button mat-flat-button color="accent" type="submit" [disabled]="eventForm.invalid">Crear Evento</button>
+  </div>
+</form>
+
+
+<div *ngFor="let item of events">
+  <mat-card>
+    <h1>{{item.eventName}}</h1>
+    <p>{{item.desc}}</p>
+    <span>{{item.precio}}</span>
+  </mat-card>
+</div>

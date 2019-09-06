@@ -12,7 +12,7 @@ const postSchema = new Schema({
         required: true
     },
     createdAt: {
-        type: String,
+        type: Date,
         required: true
     },
     user: {
